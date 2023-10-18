@@ -26,7 +26,7 @@ export interface IBook {
 
 // интерфейсы стора для книжек
 export interface BooksState {
-  books: any[];
+  books: IBook[];
   loading: boolean;
   error: null | string;
 }
@@ -45,7 +45,7 @@ interface FetchBooksAction {
 
 interface FetchBooksSuccessAction {
   type: BooksActionTypes.FETCH_BOOKS_SUCCESS;
-  payload: any[];
+  payload: IBook[];
 }
 
 interface FetchBooksErrorAction {

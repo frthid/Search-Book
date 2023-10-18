@@ -14,7 +14,7 @@ export const fetchBook = () => {
     try {
       dispatch({ type: BooksActionTypes.FETCH_BOOKS });
       const response = await axios.get(adress);
-      dispatch({type: BooksActionTypes.FETCH_BOOKS_SUCCESS, payload: response.data})
+      dispatch({type: BooksActionTypes.FETCH_BOOKS_SUCCESS, payload: response.data.items})
     } catch (error) {
       dispatch({
         type: BooksActionTypes.FETCH_BOOKS_ERROR,
@@ -23,3 +23,4 @@ export const fetchBook = () => {
     }
   };
 };
+  

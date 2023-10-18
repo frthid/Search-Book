@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useTypesSelector } from '../../hooks/useTypesSelector';
-import { useDispatch } from 'react-redux';
-import { fetchBook } from '../../services/fetchBook';
+import { useAction } from '../../hooks/useAction';
 
 const BookList: React.FC = () => {
   const { books, error, loading } = useTypesSelector((state) => state.books);
-  const dispatch = useDispatch();
+  const {fetchBook} = useAction()
 
   useEffect(() => {
-    dispatch(fetchBook());
+    fetchBook()
     console.log(books)
   }, []);
 
@@ -20,9 +19,9 @@ const BookList: React.FC = () => {
   }
 
   return <div>
-    {/* {books.map(book => 
-      <div>{book.items}</div>
-        )} */}
+    {books.map(book => 
+      <div key={book.id}>{book.volumeInfo.title}</div>
+        )}
   </div>;
 };
 
