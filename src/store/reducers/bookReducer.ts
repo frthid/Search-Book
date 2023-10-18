@@ -1,3 +1,4 @@
+import { rootReducer } from ".";
 import { BooksAction, BooksActionTypes, BooksState } from "../../types/types";
 
 const initialState: BooksState = {
@@ -18,3 +19,5 @@ export const bookReducer = (state = initialState, action: BooksAction): BooksSta
       return state;
   }
 };
+
+export type RootState = ReturnType<typeof rootReducer>
