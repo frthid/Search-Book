@@ -1,7 +1,11 @@
+import classes from './Footer.module.scss';
+
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer className={classes.footer}>
+      <p>&copy; 2023</p>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

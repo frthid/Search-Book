@@ -1,5 +1,7 @@
+@import '../../styles/variables.scss';
+
 .main {
   min-height: calc(100vh - 100px);
   position: relative;
-  background: rgb(133, 65, 65);
+  background: $light;
 }

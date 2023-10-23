@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+  .wrapper {
+    padding: 30px;
+  }
+
+.list {
+  // background: green;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(350px, auto);
+  grid-gap: 10px;
+  justify-content: center;
+}
+

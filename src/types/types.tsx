@@ -15,6 +15,8 @@ export interface IBook {
     description: string;
     pageCount: number;
     language: string;
+    authors: string[];
+    categories: string[];
     imageLinks: {
       thumbnail: string;
     };
