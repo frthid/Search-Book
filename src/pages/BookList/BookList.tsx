@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTypesSelector } from '../../hooks/useTypesSelector';
-import { useAction } from '../../hooks/useAction';
+// import { useAction } from '../../hooks/useAction';
 import BookCard from '../../components/BookCard/BookCard';
 import { IBook } from '../../types/types';
 import classes from './BookList.module.scss';
 
 const BookList: React.FC = () => {
   const { books, error, loading } = useTypesSelector((state) => state.books);
-  const { fetchBook } = useAction();
+  // const { fetchBook } = useAction();
 
-  useEffect(() => {
-    fetchBook();
-    console.log(books);
-  }, []);
+  // useEffect(() => {
+  //   fetchBook();
+  //   console.log(books);
+  // }, []);
 
   if (loading) {
     return <h1>Идет загрузка...</h1>;

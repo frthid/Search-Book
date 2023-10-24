@@ -6,14 +6,18 @@ import { BooksAction, BooksActionTypes } from '../types/types';
 import constants from '../constants/constants';
 import axios from 'axios';
 
-export const fetchBook = () => {
+export const fetchBook = (intitleQuery: string) => {
   const { FETCH_ERROR_MESSAGE, REQUEST_ADRESS, API_KEY } = constants;
-  const adress = `${REQUEST_ADRESS}?q=js&key=${API_KEY}`
+  // const adress = `${REQUEST_ADRESS}?q=ts&key=${API_KEY}`
+  const adress = `${REQUEST_ADRESS}?q=${intitleQuery}&key=${API_KEY}`
+  console.log('Запрос начат. Запрашиваемые данные:', intitleQuery);
 
   return async (dispatch: Dispatch<BooksAction>) => {
     try {
       dispatch({ type: BooksActionTypes.FETCH_BOOKS });
+      console.log('Отправка GET-запроса по адресу:', adress);
       const response = await axios.get(adress);
+      console.log('Ответ от сервера получен. Данные:', response.data);
       dispatch({type: BooksActionTypes.FETCH_BOOKS_SUCCESS, payload: response.data.items})
     } catch (error) {
       dispatch({
