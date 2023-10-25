@@ -1,12 +1,14 @@
 import React from 'react'
 
 interface IButtonProps {
-  onClick: () => void
+  text: string;
+  type: 'button' | 'submit' | 'reset';
+  onClick: (e: React.FormEvent) =>  void
 }
 
-const Button: React.FC<IButtonProps> = ({onClick}) => {
+const Button: React.FC<IButtonProps> = ({onClick, text, type}) => {
   return (
-    <button onClick={onClick}>Искать</button>
+    <button type={type} onClick={onClick}>{text}</button>
   )
 }
 
