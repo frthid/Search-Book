@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './Dropdown.module.scss';
 import { AiFillCaretDown } from 'react-icons/ai';
+import { categories } from '../../../constants/constants';
 
 interface IDropdownProps {
   selected: string;
@@ -9,7 +10,6 @@ interface IDropdownProps {
 
 const Dropdown: React.FC<IDropdownProps> = ({ selected, setSelected }) => {
   const [isActive, setIsActive] = useState(false);
-  const categories = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
 
   return (
     <div className={classes.dropdown}>
@@ -23,6 +23,7 @@ const Dropdown: React.FC<IDropdownProps> = ({ selected, setSelected }) => {
         <div className={classes.dropdown__content}>
           {categories.map((categori) => (
             <div
+              key={categori}
               className={classes.dropdown__content__item}
               onClick={() => {
                 setSelected(categori);

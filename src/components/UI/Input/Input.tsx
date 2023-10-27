@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import classes from './Input.module.scss';
 
 interface IInputProps {
   id: string;
@@ -15,7 +16,7 @@ const Input: React.FC<IInputProps> = ({ value, onChange, placeholder = 'Введ
 
   return (
     <>
-      <input type={type} value={value} placeholder={placeholder} onChange={handleInputChange} />
+      <input className={classes.input} type={type} value={value} placeholder={placeholder} onChange={handleInputChange} />
     </>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import Form from '../Form/Form';
 import classes from './SearchSection.module.scss';
 
-const SearchSection = () => {
+const SearchSection: React.FC = () => {
   return (
     <section className={classes.search}>
       <Form />

@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './FormSection.module.scss'
 
 interface IFormSection {
   title?: string;
@@ -8,7 +9,7 @@ interface IFormSection {
 
 const FormSection: React.FC<IFormSection> = ({ children, title = '', labelFor }) => {
   return (
-    <section>
+    <section className={classes.section}>
       <label htmlFor={labelFor}>
         {title}
       </label>
