@@ -13,7 +13,7 @@ const BookCard: React.FC<IBookCard> = ({ book }) => {
   return (
     <div className={classes.card}>
       <div className={classes.card__img}>
-        <img src={imageLinks.thumbnail} />
+        <img src={imageLinks?.thumbnail || 'src/assets/img/not_found_ing.jpg'} />
       </div>
       <div className={classes.card__content}>
         <div className={classes.card__content__categories}>

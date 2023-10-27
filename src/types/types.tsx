@@ -3,6 +3,7 @@ export interface IFetchBooksRequest {
   items: IBook[];
   kind: string;
   totalItems: number;
+  
 }
 
 // интерфейс книжки с сервера
@@ -33,26 +34,4 @@ export interface BooksState {
   error: null | string;
 }
 
-//перечисление с типами action
-export enum BooksActionTypes {
-  FETCH_BOOKS = 'FETCH_BOOKS',
-  FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS',
-  FETCH_BOOKS_ERROR = 'FETCH_BOOKS_ERROR', 
-}
 
-//интерфейсы action
-interface FetchBooksAction {
-  type: BooksActionTypes.FETCH_BOOKS;
-}
-
-interface FetchBooksSuccessAction {
-  type: BooksActionTypes.FETCH_BOOKS_SUCCESS;
-  payload: IBook[];
-}
-
-interface FetchBooksErrorAction {
-  type: BooksActionTypes.FETCH_BOOKS_ERROR; 
-  payload: string;
-}
-
-export type BooksAction = FetchBooksAction | FetchBooksSuccessAction | FetchBooksErrorAction

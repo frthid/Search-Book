@@ -5,10 +5,11 @@ import { categories } from '../../../constants/constants';
 
 interface IDropdownProps {
   selected: string;
-  setSelected: (category: string) => void;
+  // setSelected: (category: string) => void;
+  onChange: (value: string) => void;
 }
 
-const Dropdown: React.FC<IDropdownProps> = ({ selected, setSelected }) => {
+const Dropdown: React.FC<IDropdownProps> = ({ selected, onChange }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -26,7 +27,7 @@ const Dropdown: React.FC<IDropdownProps> = ({ selected, setSelected }) => {
               key={categori}
               className={classes.dropdown__content__item}
               onClick={() => {
-                setSelected(categori);
+                onChange(categori);
                 setIsActive(false);
               }}
             >

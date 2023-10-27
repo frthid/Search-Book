@@ -6,6 +6,3 @@ export const constants = {
 
 export const categories = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
 
-// export default constants;
-
-///all, art, biography, computers, history, medical, poetry

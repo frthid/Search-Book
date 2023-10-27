@@ -1,11 +1,11 @@
 import React from 'react';
-import { useTypesSelector } from '../../hooks/useTypesSelector';
 import BookCard from '../../components/BookCard/BookCard';
 import { IBook } from '../../types/types';
 import classes from './BookList.module.scss';
+import { useAppSelector } from '../../hooks/redux';
 
 const BookList: React.FC = () => {
-  const { books, error, loading } = useTypesSelector((state) => state.books);
+  const { books, loading, error } = useAppSelector((state) => state.bookReducer);
 
   if (loading) {
     return <h1>Идет загрузка...</h1>;
