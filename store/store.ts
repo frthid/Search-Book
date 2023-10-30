@@ -1,11 +1,15 @@
-import { BookFormSlice } from './reducers/BookFormSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import bookReducer from './reducers/BookSlice'
+import bookReducer from './reducers/BookSlice';
+import bookFormReducer from './reducers/BookFormSlice';
+import PaginationReducer from './reducers/PaginationSlice';
+// import booksFetchSlice from './reducers/BookFetchSlice';
 
 const rootReducer = combineReducers({
   bookReducer,
-  bookForm: BookFormSlice.reducer,
+  bookFormReducer,
+  PaginationReducer,
+  // booksFetchSlice,
 })
 
 export const setupStore = () => {

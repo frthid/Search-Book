@@ -5,6 +5,8 @@ const initialState: BooksState = {
   books: [],
   loading: false,
   error: '',
+  kind: '',
+  totalItems: 0,
 }
 
 export const bookSlice = createSlice({
@@ -22,6 +24,9 @@ export const bookSlice = createSlice({
     booksFetchingError(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
+    },
+    booksFetchingTotalItems(state, action: PayloadAction<number>) {
+      state.totalItems = action.payload
     }
   }
 })

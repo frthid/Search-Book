@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
   bookName: '',
@@ -9,10 +9,10 @@ export const BookFormSlice = createSlice({
   name: 'bookForm',
   initialState,
   reducers: {
-    setBookName: (state, action) => {
+    setBookName: (state, action: PayloadAction<string>) => {
       state.bookName = action.payload
     },
-    setSelected: (state, action) => {
+    setSelected: (state, action: PayloadAction<string>) => {
       state.selected = action.payload
     }
   }

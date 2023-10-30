@@ -10,10 +10,7 @@ import { setBookName, setSelected } from '../../../store/reducers/BookFormSlice'
 
 const Form: React.FC = () => {
   const dispatch = useAppDispatch();
-  // const [bookName, setBookName] = useState<string>('');
-  // const [selected, setSelected] = useState<string>('all');
-  const bookName = useAppSelector((state) => state.bookForm.bookName)
-  const selected = useAppSelector((state) => state.bookForm.selected)
+  const {bookName, selected}= useAppSelector((state) => state.bookFormReducer)
   
   const handleInputChange = (value: string) => {
     dispatch(setBookName(value))

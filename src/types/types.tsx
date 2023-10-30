@@ -3,7 +3,6 @@ export interface IFetchBooksRequest {
   items: IBook[];
   kind: string;
   totalItems: number;
-  
 }
 
 // интерфейс книжки с сервера
@@ -32,6 +31,14 @@ export interface BooksState {
   books: IBook[];
   loading: boolean;
   error: null | string;
+  totalItems: number;
+  kind: string;
 }
+
+// export interface BooksFetchState {
+//   books: IBook[];
+//   totalItems: number;
+//   kind: string;
+// }
 
 
