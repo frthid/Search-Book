@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentPage: 30,
-  itemsPerPage: 30,
+  startingIndex: 0,
+  currentIndex: 20,
 };
 
 export const paginationSlice = createSlice({
   name: 'pagination',
   initialState,
   reducers: {
-    setPage: (state, action: PayloadAction<number>) => {
-      state.currentPage = action.payload;
+    setStartingIndex: (state, action: PayloadAction<number>) => {
+      state.startingIndex = action.payload;
     },
-    setItemsPerPage: (state, action: PayloadAction<number>) => {
-      state.itemsPerPage = action.payload;
+    setCurrentIndex: (state, action: PayloadAction<number>) => {
+      state.currentIndex = action.payload;
     },
   },
 });
 
-export const {setItemsPerPage, setPage} =paginationSlice.actions;
+export const {setStartingIndex, setCurrentIndex} =paginationSlice.actions;
 export default paginationSlice.reducer;

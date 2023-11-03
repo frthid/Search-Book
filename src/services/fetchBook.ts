@@ -14,15 +14,12 @@ import { IFetchBooksRequest } from '../types/types';
 // }
 
 // export const fetchBook = ({ searchQuery, selectedCategory, maxResults }: IFetchBookProps) => {
-export const fetchBook = ( searchQuery: string, selectedCategory: string) => {
+export const fetchBook = ( searchQuery: string, selectedCategory: string, startingIndex: number, maxResults: number,) => {
   const { FETCH_ERROR_MESSAGE, REQUEST_ADRESS, API_KEY } = constants;
-
   const intitleQuery = `+intitle:${searchQuery}`;
   const categoryQuery = selectedCategory === 'all' ? '' : `+subject:${selectedCategory}`;
-  const paginationQuery = `&startIndex=0&maxResults=3`;
+  const paginationQuery = `&startIndex=${startingIndex}&maxResults=${maxResults}`;
   const adress = `${REQUEST_ADRESS}?q=${intitleQuery}${categoryQuery}${paginationQuery}&key=${API_KEY}`;
-
-  console.log('Запрос начат. Запрашиваемые данные:', intitleQuery);
 
   return async (dispatch: AppDispatch) => {
     try {

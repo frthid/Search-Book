@@ -20,6 +20,8 @@ export const bookSlice = createSlice({
       state.loading = false;
       state.error = '';
       state.books = action.payload;
+      // state.books = state.books.concat(action.payload)
+      // state.books = [...state.books, ...action.payload];
     },
     booksFetchingError(state, action: PayloadAction<string>) {
       state.loading = false;

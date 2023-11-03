@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
 import classes from './Form.module.scss';
@@ -7,26 +7,30 @@ import Dropdown from '../UI/Dropdown/Dropdown';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchBook } from '../../services/fetchBook';
 import { setBookName, setSelected } from '../../../store/reducers/BookFormSlice';
+import { setStartingIndex } from '../../../store/reducers/PaginationSlice';
 
 const Form: React.FC = () => {
   const dispatch = useAppDispatch();
   const {bookName, selected}= useAppSelector((state) => state.bookFormReducer)
-  
+  const {startingIndex, currentIndex} = useAppSelector((state) => state.PaginationReducer)
+
   const handleInputChange = (value: string) => {
+    dispatch(setStartingIndex(0));
     dispatch(setBookName(value))
   };
 
   const handleSelectChange = (value: string) => {
+    dispatch(setStartingIndex(0));
     dispatch(setSelected(value)); 
   };
 
-  useEffect(() => {
-    dispatch(fetchBook(bookName, selected))
-  }, [selected])
+  // useEffect(() => {
+  //   dispatch(fetchBook(bookName, selected, startingIndex, currentIndex))
+  // }, [selected])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(fetchBook(bookName, selected));
+    dispatch(fetchBook(bookName, selected, startingIndex, currentIndex));
   };
 
   return (
